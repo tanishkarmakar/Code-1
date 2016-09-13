@@ -1,0 +1,41 @@
+float rotAngle = 360;
+int w = 100+mouseX;
+int h = 100+mouseY;
+int posX = mouseX + 50;
+void setup() {
+  size(1920,1080);
+  background(0);
+} 
+
+void draw() {
+  
+  //first push
+  pushMatrix(); // remembers the translation / rotation beneath it.
+  translate(width/2, height/2);
+  rotate(radians(rotAngle));
+  rectMode(CENTER);
+  rect(0,0,w,h);
+  fill (255,0,0);
+  rotAngle+=1; 
+  //second push
+  pushMatrix();
+  translate(200, 0);
+  rotate(radians(rotAngle*5));
+  //rectMode(CORNER);
+  rect(0, 0, w/2, h*2);
+  fill (0,0,random(255));
+  //first pop
+  
+  pushMatrix ();
+  translate (50,0);
+  rotate (radians (rotAngle/3));
+  rect (mouseX,mouseY,w/2,h*2);
+  fill (255,235,5);
+  
+  
+  popMatrix();
+  //second pop
+  popMatrix();
+  popMatrix();
+}
+
