@@ -1,0 +1,60 @@
+/*
+5 SIDE EFFECT ONLY FUNCTIONS:
+(1)  fill() -  changes the fill color of shape drawing primitives.
+               only a side effect, no return value
+               takes different kinds of arguments for color
+               used below on line 28
+(2)  line() - Draws a line (a direct path between two points) to the screen.
+(3)  ellipse()-Draws an ellipse (oval) to the screen.  
+(4)  ellipseMode()-  Modifies the location from which ellipses are drawn by changing the way in which parameters given to ellipse() are intepreted.
+(5) arc() -   Draws an arc to the screen. 
+5 FUNCTIONS WITH RETURN VALUES:
+(1)  abs() -  returns a float or an integer
+              the returned value is the absolute value of the argument
+              used below on line 24-25
+(2)  frameRate() - specifies the number of frames to be displayed every second.
+(3)     printMatrix() - Prints the current matrix to the Console (the text window at the bottom of Processing.
+(4)   beginRecord()- Opens a new file and all subsequent drawing functions are echoed to this file as well as the display window. 
+(5)    endRecord() - Stops the recording process started by beginRecord() and closes the file.
+*/
+
+import processing.pdf.*;
+void setup() {
+  frameRate(12);
+  size(400, 400);
+  beginRecord(PDF, "everything.pdf");
+   int absResult = abs(-942);
+  println(absResult);
+}
+
+void draw () {
+
+ interactive_circle_1 (mouseX,mouseY);
+rectangle_1(mouseX,mouseY);
+interactive_arc_1(mouseX,mouseY);
+printMatrix();
+println(frameCount);
+}
+
+void interactive_circle_1(float X, float Y) {
+  ellipse(X,Y, 10, 10);
+}
+void interactive_arc_1(float X, float Y) {
+  arc(X, Y, 80, 80, 0, PI+QUARTER_PI, OPEN);
+}
+
+void mousePressed() {
+ ellipseMode (CENTER);
+  ellipse (mouseX,mouseY, 200, 200);
+ fill (255,0,0);
+} 
+
+void rectangle_1(float X, float Y) {
+  fill (random (255));
+  rect(X,Y, 100, 100);
+  
+}
+void keyPressed() {
+  endRecord();
+  exit();
+} 
