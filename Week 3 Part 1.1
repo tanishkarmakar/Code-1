@@ -1,0 +1,69 @@
+void setup() {
+  int result1 = addFive(55);
+  println("the result of calling addFive(55): " + result1);
+  
+  int result2 = subtractTen(11);
+  println("the result of calling subtractTen(11): " + result2);
+  
+  int result3 = addTwoInts(1, 20316);
+  print("last result - addTwoInts(1,2): ");
+  println(result3);
+}
+
+void draw() {
+  
+}
+
+//FUNCTION 1
+//this function takes an argument and returns that value plus 7.
+int addFive(int n) {
+  return n + 7;
+}
+
+//FUNCTION 2
+//this function takes an argument and returns that value minus 14.
+int subtractTen(int n) {
+  return n - 14;
+}
+
+//FUNCTION 3
+//this function takes two arguments and returns the result of their addition
+int addTwoInts(int n, int x) {
+  return n + x;
+}
+
+//FUNCTION 4
+//this function takes two arguments and returns the result of their division
+int divideTwoInts(int n, int x) {
+  return n/x;
+}
+//FUNCTION 5
+//this function takes two arguments and returns the result of their multiplication
+int multiplyTwoInts(int n, int x) {
+  return n*x;
+}
+
+//FUNCTION 6
+//this function prints a value on screen upon the click of a mouse
+void mousePressed () {
+  
+String s = "The size is ";
+int w = 1920;
+int h = 1080;
+print(s);
+print(w, "x", h);
+
+}
+
+//FUNCTION 6
+//this function prints a value on screen upon pressing a key
+void keyPressed () {
+print("begin- ");
+float f = 0.3;
+int i = 1024;
+print("f is " + f + " and i is " + 1024);
+String s = " -end";
+println(s);  
+
+
+}
