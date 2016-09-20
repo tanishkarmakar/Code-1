@@ -1,0 +1,17 @@
+Object: Ball - This is a small bouncy ball which emits a trail of light 
+
+Fields:
+
+float x - determines the position of the ball.
+float y
+boolean facingUp - determines the direction which the ball is facing
+boolean isSmall - determines the size of the ball
+boolean emitTrail - emits the light trail from the ball
+
+Methods:
+
+bounce()
+moveUp()
+moveDown()
+moveLeft()
+moveRight
