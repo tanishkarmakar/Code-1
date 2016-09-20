@@ -1,41 +1,62 @@
-float rotAngle = 360;
-int w = 100+mouseX;
-int h = 100+mouseY;
-int posX = mouseX + 50;
+
+float circleRotation_first;
+float circleRotation_second;
+float circleRotation_third;
+
 void setup() {
   size(1920,1080);
-  background(0);
-} 
-
-void draw() {
-  
-  //first push
-  pushMatrix(); // remembers the translation / rotation beneath it.
-  translate(width/2, height/2);
-  rotate(radians(rotAngle));
-  rectMode(CENTER);
-  rect(0,0,w,h);
-  fill (255,0,0);
-  rotAngle+=1; 
-  //second push
-  pushMatrix();
-  translate(200, 0);
-  rotate(radians(rotAngle*5));
-  //rectMode(CORNER);
-  rect(0, 0, w/2, h*2);
-  fill (0,0,random(255));
-  //first pop
-  
-  pushMatrix ();
-  translate (50,0);
-  rotate (radians (rotAngle/3));
-  rect (mouseX,mouseY,w/2,h*2);
-  fill (255,235,5);
-  
-  
-  popMatrix();
-  //second pop
-  popMatrix();
-  popMatrix();
+  ellipseMode(CENTER); 
+  strokeWeight(10);
 }
 
+void draw() {
+  background(0);
+  
+ 
+ circleRotation_first+=0.8;
+ circleRotation_second+=50;
+ circleRotation_third +=1;
+  
+  draw_Rotating_Lines_With_Text (); 
+  pushMatrix();
+  translate(width/2,height/2);
+  rotate(radians( circleRotation_first));
+  drawRotatingCircle(mouseX,mouseY,100,150);
+  draw_Rotating_Lines_With_Text ();
+  
+  pushMatrix();  
+  translate(200,0);  
+  rotate(radians(circleRotation_second));  
+  drawRotatingCircle(mouseX,mouseY,70,200); 
+  draw_Rotating_Lines_With_Text ();
+  
+  pushMatrix();  
+  translate(100,0);  
+  rotate(radians( circleRotation_third));  
+drawRotatingCircle(0,0,50,200);  
+  draw_Rotating_Lines_With_Text (); 
+  
+  popMatrix(); 
+  popMatrix();
+  popMatrix();
+  
+  
+}
+
+
+void drawRotatingCircle (int x, int y, int size, int gray) {
+  fill(gray);
+  ellipse(x,y,size,size);  
+}
+
+
+void draw_Rotating_Lines_With_Text () {
+  fill(0);
+  
+  text("exist",0,0);
+  textSize (100);
+  stroke(0,70);
+  line(0,mouseY,width,0);
+  line(mouseX,0,0,height);
+strokeWeight(3);
+}
